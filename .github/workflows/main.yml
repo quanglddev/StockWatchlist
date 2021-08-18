@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Using linux machine
+    runs-on: ubuntu-18.04 # Using linux machine
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
