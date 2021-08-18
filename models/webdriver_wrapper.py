@@ -59,7 +59,7 @@ class WebDriverWrapper:
             "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"  # noqa
         )
 
-        chrome_options.binary_location = os.getcwd() + "/bin/headless-chromium"
+        chrome_options.binary_location = os.environ["CHROMEWEBDRIVER"]
 
         self._driver = webdriver.Chrome(chrome_options=chrome_options)
 
