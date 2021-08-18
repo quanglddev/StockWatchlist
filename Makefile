@@ -26,7 +26,7 @@ fetch-dependencies:		## download chromedriver, headless-chrome to `./bin/`
 	unzip headless-chromium.zip -d bin/
 
 	# Clean
-	@rm headless-chromium.zip chromedriver.zip
+	@rm headless-chromium.zip
 
 docker-build:		## create Docker image
 	docker-compose build
