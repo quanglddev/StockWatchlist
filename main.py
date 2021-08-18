@@ -2,17 +2,14 @@ import os
 import time
 
 from selenium import webdriver
-from webdriver_wrapper import WebDriverWrapper
 
 from api.finnhub import get_candlestick_data_for_ticker
 from api.tda import check_if_has_acceptable_spreads
 from helpers.benzinga import get_benzinga_gappers
-from helpers.misc import (
-    get_all_tickers_from_all_market_caps,
-    get_date_before_current,
-    isWeekday,
-)
+from helpers.misc import (get_all_tickers_from_all_market_caps,
+                          get_date_before_current, isWeekday)
 from helpers.quant import check_if_is_3_bar_play
+from models.webdriver_wrapper import WebDriverWrapper
 
 
 def main():
