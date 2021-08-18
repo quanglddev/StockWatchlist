@@ -16,8 +16,7 @@ jobs:
         run: |
           make fetch-dependencies
           python -m pip install --upgrade pip
-          pip install -r requirements.txt -t lib
-          export PYTHONPATH=lib
-          export PATH=bin
+          pip install -r requirements.txt
+          export PATH=./bin
       - name: Execute main script # run main.py to get the latest data
         run: python main.py
