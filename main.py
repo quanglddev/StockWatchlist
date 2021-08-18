@@ -2,12 +2,16 @@ import os
 import time
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 from api.finnhub import get_candlestick_data_for_ticker
 from api.tda import check_if_has_acceptable_spreads
 from helpers.benzinga import get_benzinga_gappers
-from helpers.misc import (get_all_tickers_from_all_market_caps,
-                          get_date_before_current, isWeekday)
+from helpers.misc import (
+    get_all_tickers_from_all_market_caps,
+    get_date_before_current,
+    isWeekday,
+)
 from helpers.quant import check_if_is_3_bar_play
 from models.webdriver_wrapper import WebDriverWrapper
 
@@ -42,11 +46,15 @@ def main():
     # with open(new_file_path, "w+") as f:
     #     for qualified_ticker in qualified_tickers:
     #         f.write(f"{qualified_ticker}\n")
-    driver = WebDriverWrapper()
-    driver.get_url("http://example.com")
-    example_text = driver.get_inner_html("(//div//h1)[1]")
-    print(example_text)
-    driver.close()
+    # driver = WebDriverWrapper()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(options=chrome_options)
+
+    # driver.get_url("http://example.com")
+    # example_text = driver.get_inner_html("(//div//h1)[1]")
+    # print(example_text)
+    # driver.close()
 
 
 main()
