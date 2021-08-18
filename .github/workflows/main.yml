@@ -15,3 +15,9 @@ jobs:
       - name: Install Dependencies (Driver and Headless) # Using shell script to install Google Chrome
         run: |
           make fetch-dependencies
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -t lib
+          export PYTHONPATH=lib
+          export PATH=bin
+      - name: Execute main script # run main.py to get the latest data
+        run: python main.py
