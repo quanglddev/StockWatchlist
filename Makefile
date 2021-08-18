@@ -18,8 +18,8 @@ fetch-dependencies:		## download chromedriver, headless-chrome to `./bin/`
 	@mkdir -p bin/
 
 	# Get chromedriver
-	curl -SL https://chromedriver.storage.googleapis.com/86.0.4240.22/chromedriver_linux64.zip > chromedriver.zip
-	unzip chromedriver.zip -d bin/
+	# curl -SL https://chromedriver.storage.googleapis.com/86.0.4240.22/chromedriver_linux64.zip > chromedriver.zip
+	# unzip chromedriver.zip -d bin/
 
 	# Get Headless-chrome
 	curl -SL https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-57/stable-headless-chromium-amazonlinux-2.zip > headless-chromium.zip
