@@ -50,7 +50,7 @@ def main():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(options=chrome_options)
-
+    driver.get("http://example.com")
     # driver.get_url("http://example.com")
     # example_text = driver.get_inner_html("(//div//h1)[1]")
     # print(example_text)
