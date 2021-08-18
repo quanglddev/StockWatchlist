@@ -1,0 +1,25 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+    ],
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnSave": true,
+    "[yaml]": {
+        "editor.formatOnSave": false
+    },
+    "python.formatting.provider": "black",
+    "python.languageServer": "Pylance",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "trailing-spaces.trimOnSave": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 250
+}
