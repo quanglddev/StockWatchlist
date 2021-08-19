@@ -1,16 +1,19 @@
 import os
 import time
 
+from models.webdriver_wrapper import WebDriverWrapper
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from api.finnhub import get_candlestick_data_for_ticker
 from api.tda import check_if_has_acceptable_spreads
 from helpers.benzinga import get_benzinga_gappers
-from helpers.misc import (get_all_tickers_from_all_market_caps,
-                          get_date_before_current, isWeekday)
+from helpers.misc import (
+    get_all_tickers_from_all_market_caps,
+    get_date_before_current,
+    isWeekday,
+)
 from helpers.quant import check_if_is_3_bar_play
-from models.webdriver_wrapper import WebDriverWrapper
 
 
 def main():
@@ -20,6 +23,7 @@ def main():
 
     chrome_options = Options()
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
     driver = webdriver.Chrome(options=chrome_options)
     # driver = webdriver.Chrome("./assets/chromedriver")
     tickers = []
@@ -28,7 +32,7 @@ def main():
     tickers += get_all_tickers_from_all_market_caps()
     tickers += get_benzinga_gappers(driver)
 
-    print(tickers[-1])
+    print(len(tickers))
 
     for idx, ticker in enumerate(tickers):
         try:
@@ -52,13 +56,3 @@ def main():
 
 
 main()
-
-
-# def test():
-#     ohlcv = get_candlestick_data_for_ticker("HYFM")
-#     print(ohlcv)
-#     print(check_if_is_3_bar_play(ohlcv))
-#     print(check_if_has_acceptable_spreads("HYFM"))
-
-
-# test()

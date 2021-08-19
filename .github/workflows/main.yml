@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-18.04 # Using linux machine
+    runs-on: ubuntu-latest # Using linux machine
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.7.7' # install the python version needed
-      - name: Install Dependencies (Driver and Headless) # Using shell script to install Google Chrome
+      - name: Install Dependencies # Using shell script to install Google Chrome
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
