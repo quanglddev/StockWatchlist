@@ -44,4 +44,4 @@ def check_if_has_acceptable_spreads(tickerSymbol):
     is_put_acceptable = _check_if_option_strategy_has_acceptable_spreads(data, "put")
     is_call_acceptable = _check_if_option_strategy_has_acceptable_spreads(data, "call")
 
-    return is_put_acceptable and is_call_acceptable
+    return is_put_acceptable or is_call_acceptable
