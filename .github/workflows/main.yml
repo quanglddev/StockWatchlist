@@ -1,6 +1,8 @@
 name: "3/4 Bar Play Watchlist"
 
-on: [push]
+on:
+  schedule:
+    - cron: '0 9 * * *'
 
 jobs:
   build:
