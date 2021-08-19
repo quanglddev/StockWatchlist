@@ -1,7 +1,6 @@
 import os
 import time
 
-from models.webdriver_wrapper import WebDriverWrapper
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
