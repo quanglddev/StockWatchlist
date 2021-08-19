@@ -51,7 +51,6 @@ def main():
             if is_3_bar_play_list[-1] and has_acceptable_spread_list[-1]:
                 qualified_tickers.append(tickerSymbol)
             time.sleep(1.5)
-            break
         except Exception:
             print("error")
             break
