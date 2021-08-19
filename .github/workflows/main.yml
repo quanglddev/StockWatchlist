@@ -17,4 +17,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Execute main script # run main.py to get the latest data
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TDA_API_KEY: ${{ secrets.TDA_API_KEY }}
         run: python main.py
+      - name: Commit output files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "update output" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
