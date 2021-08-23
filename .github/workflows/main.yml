@@ -3,6 +3,7 @@ name: "3/4 Bar Play Watchlist"
 on:
   schedule:
     - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
