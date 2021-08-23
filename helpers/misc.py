@@ -48,7 +48,7 @@ def get_element_safe(source, tag, class_=None, recursive=True):
     else:
         filtered = source.find_all(tag, class_=class_, recursive=recursive)
     if len(filtered) == 0:
-        raise Exception("Cannot find element: <{tag} class='{class_}'></{tag}>")
+        raise Exception(f"Cannot find element: <{tag} class='{class_}'></{tag}>")
     elif len(filtered) > 1:
         print("WARNING: More than 1 element found. Please avoid this function!")
     else:
