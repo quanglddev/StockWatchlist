@@ -32,7 +32,12 @@ def _get_gap_links_within_previous_two_days(driver):
     current_date = get_date_before_current(0)
     weekday_human_text = current_date.strftime("%A")
     links = list(
-        filter(lambda x: weekday_human_text.lower() not in x[0].lower(), links)
+        filter(
+            lambda x: weekday_human_text.lower() not in x[0].lower()
+            and "saturday" not in x[0].lower()
+            and "sunday" not in x[0].lower(),
+            links,
+        )
     )
 
     links = links[:4]
@@ -53,9 +58,13 @@ def get_benzinga_gappers(driver):
         # DIRECTION_VERBS = BENZINGA_BULL_VERBS + BENZINGA_BEAR_VERBS
 
         for stock in stocks:
-            ticker_elem = get_element_safe(
-                stock, tag="a", class_="ticker bztwwidgethover"
-            )
+            try:
+                ticker_elem = get_element_safe(
+                    stock, tag="a", class_="ticker bztwwidgethover"
+                )
+            except Exception:
+                # Sometimes there's a bullet point writing about a stock above it
+                continue
 
             ticker = extract_using_regex_safe(
                 "[A-Z]{1,5}(?:\s*\d{6}[PC]\d{8})?", ticker_elem.text
