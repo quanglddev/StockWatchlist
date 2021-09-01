@@ -42,7 +42,7 @@ def extract_using_regex_safe(pattern, text):
         return candidates[0]
 
 
-def get_element_safe(source, tag, class_=None, recursive=True):
+def get_element_safe(source, tag, class_=None, recursive=True, accept_first=False):
     if class_ is None:
         filtered = source.find_all(tag, recursive=recursive)
     else:
@@ -50,6 +50,8 @@ def get_element_safe(source, tag, class_=None, recursive=True):
     if len(filtered) == 0:
         raise Exception(f"Cannot find element: <{tag} class='{class_}'></{tag}>")
     elif len(filtered) > 1:
+        if accept_first:
+            return filtered[0]
         print("WARNING: More than 1 element found. Please avoid this function!")
     else:
         return filtered[0]

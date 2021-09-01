@@ -37,6 +37,8 @@ def main():
 
     tickers += get_all_tickers_from_all_market_caps()
     tickers += get_benzinga_gappers(driver)
+    tickers.sort()
+    tickers = list(set(tickers))
     df["Ticker"] = pd.Series(tickers)
 
     for idx, ticker in enumerate(tickers):
